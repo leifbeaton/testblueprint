@@ -38,14 +38,14 @@
 			],
 			"required-licanses": [
 				"NGINX Plus": {
-					"name":"nginx-repo",
-					"format":"crt/key",
+					"name": "nginx-repo",
+					"format": "crt/key",
 					"accepted-formats": [
 						"json",
 						"zip"
 					],
-					"trial-url":"https://www.nginx.com/free-trial-request/",
-					"target-directory":"/etc/ssl/nginx/"
+					"trial-url": "https://www.nginx.com/free-trial-request/",
+					"target-directory": "/etc/ssl/nginx/"
 				}
 			]
 		}
