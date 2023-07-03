@@ -34,7 +34,7 @@
 				"sys": "ihoboihohibobhibhobhhbihbiohbiobohibbioh"
 			],
 			"nics": [
-				0: "testnetwork"
+				"0": "testnetwork"
 			]
 		}
 	}
