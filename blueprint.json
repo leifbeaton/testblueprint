@@ -1,0 +1,40 @@
+{
+	"name": "testblueprint",
+	"author": "l.beaton@f5.com",
+	"version": "0.9".
+	"environment": {
+		"networks": [{
+			"name": "testnetwork",
+			"cidr": "10.0.0.1/24",
+			"has-dhcp": true,
+			"dhcp-range": "10.0.0.30-10.0.0.200"
+		}],
+		"instance": {
+			"name": "testserver",
+			"tested-os": [
+				"Ubuntu 22.04",
+				"Ubuntu 20.04"
+			],
+			"recommended-ram": "8GB",
+			"recommended-cpu": "8 cores",
+			"recommended-optimization": "Balanced",
+			"firstboot-script": "scripts/testserver_firstboot.sh",
+			"eachboot-script": "scripts/testserver_eachboot.sh",
+			"disable-root": false,
+			"users": [{
+				"name": "leifbeaton",
+				"is-sudo": true,
+				"sudo-nopassword": true,
+				"has-homedir": true
+			}],
+			"enable-ssh": true,
+			"ssh-keys": [
+				"leif": "hbhibhbobohibhoihbhibhboibboihobb",
+				"sys": "ihoboihohibobhibhobhhbihbiohbiobohibbioh"
+			],
+			"nics": [
+				0: "testnetwork"
+			]
+		}
+	}
+}
