@@ -45,7 +45,7 @@
 						"zip"
 					],
 					"trial-url":"https://www.nginx.com/free-trial-request/",
-					"guest-location":"/etc/ssl/nginx/"
+					"target-directory":"/etc/ssl/nginx/"
 				}
 			]
 		}
