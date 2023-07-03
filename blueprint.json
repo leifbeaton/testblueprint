@@ -35,6 +35,18 @@
 			],
 			"nics": [
 				"0": "testnetwork"
+			],
+			"required-licanses": [
+				"NGINX Plus": {
+					"name":"nginx-repo",
+					"format":"crt/key",
+					"accepted-formats": [
+						"json",
+						"zip"
+					],
+					"trial-url":"https://nginx.com",
+					"guest-location":"/etc/ssl/nginx"
+				}
 			]
 		}
 	}
