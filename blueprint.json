@@ -17,6 +17,7 @@
 			],
 			"recommended-ram": "8GB",
 			"recommended-cpu": "8 cores",
+			"has-public-ip": true,
 			"recommended-optimization": "Balanced",
 			"firstboot-script": "scripts/testserver_firstboot.sh",
 			"eachboot-script": "scripts/testserver_eachboot.sh",
