@@ -9,45 +9,70 @@
 			"has-dhcp": true,
 			"dhcp-range": "10.0.0.30-10.0.0.200"
 		}],
-		"instance": {
-			"name": "testserver",
-			"tested-os": [
-				"Ubuntu 22.04",
-				"Ubuntu 20.04"
-			],
-			"recommended-ram": "8GB",
-			"recommended-cpu": "8 cores",
-			"has-public-ip": true,
-			"recommended-optimization": "Balanced",
-			"firstboot-script": "scripts/testserver_firstboot.sh",
-			"eachboot-script": "scripts/testserver_eachboot.sh",
-			"disable-root": false,
-			"users": [{
-				"name": "leifbeaton",
-				"is-sudo": true,
-				"sudo-nopassword": true,
-				"has-homedir": true
-			}],
-			"enable-ssh": true,
-			"ssh-keys": [
-				"leif": "hbhibhbobohibhoihbhibhboibboihobb",
-				"sys": "ihoboihohibobhibhobhhbihbiohbiobohibbioh"
-			],
-			"nics": [
-				"0": "testnetwork"
-			],
-			"required-licanses": [
-				"NGINX Plus": {
-					"name": "nginx-repo",
-					"format": "crt/key",
-					"accepted-formats": [
-						"json",
-						"zip"
-					],
-					"trial-url": "https://www.nginx.com/free-trial-request/",
-					"target-directory": "/etc/ssl/nginx/"
-				}
-			]
-		}
+		"instances": [
+			{
+				"name": "testserver",
+				"tested-os": [
+					"Ubuntu 22.04",
+					"Ubuntu 20.04"
+				],
+				"recommended-ram": "8GB",
+				"recommended-cpu": "8 cores",
+				"has-public-ip": true,
+				"recommended-optimization": "Balanced",
+				"disable-root": false,
+				"users": [{
+					"name": "leifbeaton",
+					"is-sudo": true,
+					"sudo-nopassword": true,
+					"has-homedir": true
+				}],
+				"enable-ssh": true,
+				"ssh-keys": [
+					"leif": "hbhibhbobohibhoihbhibhboibboihobb",
+					"sys": "ihoboihohibobhibhobhhbihbiohbiobohibbioh"
+				],
+				"nics": [
+					"0": "testnetwork"
+				],
+				"required-licenses": [
+					"NGINX Plus": {
+						"name": "nginx-repo",
+						"format": "crt,key,jwt,zip",
+						"accepted-formats": [
+							"crt",
+							"key",
+							"jwt",
+							"zip"
+						],
+						"trial-url": "https://www.nginx.com/free-trial-request/",
+						"target-directory": "/etc/ssl/nginx/"
+					}
+				],
+				"filecopy": [
+					{
+						"source": "scripts/testserver_firstboot.sh",
+						"target": "~/initscripts/",
+						"requires-reboot": false,
+						"postcopy-actions": [
+							{
+								"runscript": "once"
+							}
+						]
+					}
+					{
+						"source": "scripts/testserver_eachboot.sh",
+						"target": "/var/bootscripts/",
+						"requires-sudo": true,
+						"requires-reboot": false,
+						"postcopy-actions": [
+							{
+								"runscript": "eachboot"
+							}
+						]
+					}
+				]
+			}
+		]
 	}
 }
