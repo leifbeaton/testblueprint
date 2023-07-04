@@ -1,7 +1,7 @@
 {
 	"name": "testblueprint",
 	"author": "l.beaton@f5.com",
-	"version": "0.9".
+	"version": "0.9",
 	"environment": {
 		"networks": [{
 			"name": "testnetwork",
