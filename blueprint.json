@@ -59,7 +59,7 @@
 								"runscript": "once"
 							}
 						]
-					}
+					},
 					{
 						"source": "scripts/testserver_eachboot.sh",
 						"target": "/var/bootscripts/",
@@ -68,6 +68,17 @@
 						"postcopy-actions": [
 							{
 								"runscript": "eachboot"
+							}
+						]
+					},
+					{
+						"source": "config/testserver_nginx.conf",
+						"target": "/etc/nginx/conf.d/",
+						"requires-sudo": true,
+						"requires-reboot": false,
+						"postcopy-actions": [
+							{
+								"exec-command": "nginx -s reload"
 							}
 						]
 					}
