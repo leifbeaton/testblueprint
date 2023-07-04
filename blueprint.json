@@ -11,7 +11,7 @@
 		}],
 		"instances": [
 			{
-				"name": "testserver",
+				"name": "nginx_frontend",
 				"tested-os": [
 					"Ubuntu 22.04",
 					"Ubuntu 20.04"
@@ -34,6 +34,12 @@
 				],
 				"nics": [
 					"0": "testnetwork"
+				],
+				"security-group-rule": [
+					{ "tcp", 80, 80, "HTTP Access" },
+					{ "tcp", 443, 443, "HTTPS Access" },
+					{ "tcp", 8080, 8080, "HTTP Access on port 8080" },
+					{ "tcp", 22, 22, "SSH Access" },
 				],
 				"required-licenses": [
 					"NGINX Plus": {
