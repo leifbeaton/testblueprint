@@ -27,39 +27,40 @@
 				"has-homedir": true
 			}],
 			"enable-ssh": true,
-			"ssh-keys": [
+			"ssh-keys": [{
 				"leif": "hbhibhbobohibhoihbhibhboibboihobb",
 				"sys": "ihoboihohibobhibhobhhbihbiohbiobohibbioh"
-			],
-			"nics": [
+			}],
+			"nics": [{
 				"0": "testnetwork"
-			],
-			"security-group-rule": [{
+			}],
+			"security-group-rule": [
+				[
 					"tcp",
 					80,
 					80,
 					"HTTP Access"
-				},
-				{
+				],
+				[
 					"tcp",
 					443,
 					443,
 					"HTTPS Access"
-				},
-				{
+				],
+				[
 					"tcp",
 					8080,
 					8080,
 					"HTTP Access on port 8080"
-				},
-				{
+				],
+				[
 					"tcp",
 					22,
 					22,
 					"SSH Access"
-				},
+				]
 			],
-			"required-licenses": [
+			"required-licenses": [{
 				"NGINX Plus": {
 					"name": "nginx-repo",
 					"format": "crt,key,jwt,zip",
@@ -72,7 +73,7 @@
 					"trial-url": "https://www.nginx.com/free-trial-request/",
 					"target-directory": "/etc/ssl/nginx/"
 				}
-			],
+			}],
 			"filecopy": [{
 					"source": "scripts/testserver_firstboot.sh",
 					"target": "~/initscripts/",
