@@ -9,87 +9,97 @@
 			"has-dhcp": true,
 			"dhcp-range": "10.0.0.30-10.0.0.200"
 		}],
-		"instances": [
-			{
-				"name": "nginx_frontend",
-				"tested-os": [
-					"Ubuntu 22.04",
-					"Ubuntu 20.04"
-				],
-				"recommended-ram": "8GB",
-				"recommended-cpu": "8 cores",
-				"has-public-ip": true,
-				"recommended-optimization": "Balanced",
-				"disable-root": false,
-				"users": [{
-					"name": "leifbeaton",
-					"is-sudo": true,
-					"sudo-nopassword": true,
-					"has-homedir": true
-				}],
-				"enable-ssh": true,
-				"ssh-keys": [
-					"leif": "hbhibhbobohibhoihbhibhboibboihobb",
-					"sys": "ihoboihohibobhibhobhhbihbiohbiobohibbioh"
-				],
-				"nics": [
-					"0": "testnetwork"
-				],
-				"security-group-rule": [
-					{ "tcp", 80, 80, "HTTP Access" },
-					{ "tcp", 443, 443, "HTTPS Access" },
-					{ "tcp", 8080, 8080, "HTTP Access on port 8080" },
-					{ "tcp", 22, 22, "SSH Access" },
-				],
-				"required-licenses": [
-					"NGINX Plus": {
-						"name": "nginx-repo",
-						"format": "crt,key,jwt,zip",
-						"accepted-formats": [
-							"crt",
-							"key",
-							"jwt",
-							"zip"
-						],
-						"trial-url": "https://www.nginx.com/free-trial-request/",
-						"target-directory": "/etc/ssl/nginx/"
-					}
-				],
-				"filecopy": [
-					{
-						"source": "scripts/testserver_firstboot.sh",
-						"target": "~/initscripts/",
-						"requires-reboot": false,
-						"postcopy-actions": [
-							{
-								"runscript": "once"
-							}
-						]
-					},
-					{
-						"source": "scripts/testserver_eachboot.sh",
-						"target": "/var/bootscripts/",
-						"requires-sudo": true,
-						"requires-reboot": false,
-						"postcopy-actions": [
-							{
-								"runscript": "eachboot"
-							}
-						]
-					},
-					{
-						"source": "config/testserver_nginx.conf",
-						"target": "/etc/nginx/conf.d/",
-						"requires-sudo": true,
-						"requires-reboot": false,
-						"postcopy-actions": [
-							{
-								"exec-command": "nginx -s reload"
-							}
-						]
-					}
-				]
-			}
-		]
+		"instances": [{
+			"name": "nginx_frontend",
+			"tested-os": [
+				"Ubuntu 22.04",
+				"Ubuntu 20.04"
+			],
+			"recommended-ram": "8GB",
+			"recommended-cpu": "8 cores",
+			"has-public-ip": true,
+			"recommended-optimization": "Balanced",
+			"disable-root": false,
+			"users": [{
+				"name": "leifbeaton",
+				"is-sudo": true,
+				"sudo-nopassword": true,
+				"has-homedir": true
+			}],
+			"enable-ssh": true,
+			"ssh-keys": [
+				"leif": "hbhibhbobohibhoihbhibhboibboihobb",
+				"sys": "ihoboihohibobhibhobhhbihbiohbiobohibbioh"
+			],
+			"nics": [
+				"0": "testnetwork"
+			],
+			"security-group-rule": [{
+					"tcp",
+					80,
+					80,
+					"HTTP Access"
+				},
+				{
+					"tcp",
+					443,
+					443,
+					"HTTPS Access"
+				},
+				{
+					"tcp",
+					8080,
+					8080,
+					"HTTP Access on port 8080"
+				},
+				{
+					"tcp",
+					22,
+					22,
+					"SSH Access"
+				},
+			],
+			"required-licenses": [
+				"NGINX Plus": {
+					"name": "nginx-repo",
+					"format": "crt,key,jwt,zip",
+					"accepted-formats": [
+						"crt",
+						"key",
+						"jwt",
+						"zip"
+					],
+					"trial-url": "https://www.nginx.com/free-trial-request/",
+					"target-directory": "/etc/ssl/nginx/"
+				}
+			],
+			"filecopy": [{
+					"source": "scripts/testserver_firstboot.sh",
+					"target": "~/initscripts/",
+					"requires-reboot": false,
+					"postcopy-actions": [{
+						"runscript": "once"
+					}]
+				},
+				{
+					"source": "scripts/testserver_eachboot.sh",
+					"target": "/var/bootscripts/",
+					"requires-sudo": true,
+					"requires-reboot": false,
+					"postcopy-actions": [{
+						"runscript": "eachboot"
+					}]
+				},
+				{
+					"source": "config/testserver_nginx.conf",
+					"target": "/etc/nginx/conf.d/",
+					"requires-sudo": true,
+					"requires-reboot": false,
+					"postcopy-actions": [{
+						"exec-command": "nginx -s reload"
+					}]
+				}
+			]
+		}]
 	}
 }
