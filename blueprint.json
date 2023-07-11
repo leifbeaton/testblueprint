@@ -17,7 +17,7 @@
 			],
 			"recommended-ram": "8GB",
 			"recommended-cpu": "8 cores",
-			"has-public-ip": true,
+			"requires-static-ip": true,
 			"recommended-optimization": "Balanced",
 			"disable-root": false,
 			"users": [{
