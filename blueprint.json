@@ -36,24 +36,56 @@
 			}],
 			"security-group-rule": [
 				[
+					"source-cidr": "0.0.0.0/1",
 					"tcp",
 					80,
 					80,
 					"HTTP Access"
 				],
 				[
+					"source-cidr": "128.0.0.0/1",
+					"tcp",
+					80,
+					80,
+					"HTTP Access"
+				],
+				[
+					"source-cidr": "0.0.0.0/1",
 					"tcp",
 					443,
 					443,
 					"HTTPS Access"
 				],
 				[
+					"source-cidr": "128.0.0.0/1",
+					"tcp",
+					443,
+					443,
+					"HTTPS Access"
+				],
+				[
+					"source-cidr": "0.0.0.0/1",
 					"tcp",
 					8080,
 					8080,
 					"HTTP Access on port 8080"
 				],
 				[
+					"source-cidr": "128.0.0.0/1",
+					"tcp",
+					8080,
+					8080,
+					"HTTP Access on port 8080"
+				],
+				[
+					"source-cidr": "0.0.0.0/1",
+					"tcp",
+					22,
+					22,
+					"SSH Access"
+				],
+				[
+					"source-cidr": "128.0.0.0/1",
 					"tcp",
 					22,
 					22,
