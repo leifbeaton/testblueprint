@@ -10,6 +10,12 @@
 			"dhcp-range": "10.0.0.30-10.0.0.200"
 		}],
 		"instances": [{
+			"name": "Jumphost",
+			"isjumphost:", true,
+			"requiresexternalip": true,
+			"httpsonly": true,
+			"hostname": "jumphost.example.com"
+		}, {
 			"name": "nginx_frontend",
 			"tested-os": [
 				"Ubuntu 22.04",
