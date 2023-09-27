@@ -34,64 +34,50 @@
 			"nics": [{
 				"0": "testnetwork"
 			}],
-			"security-group-rule": [
-				[
-					"source-cidr": "0.0.0.0/1",
-					"tcp",
-					80,
-					80,
-					"HTTP Access"
-				],
-				[
-					"source-cidr": "128.0.0.0/1",
-					"tcp",
-					80,
-					80,
-					"HTTP Access"
-				],
-				[
-					"source-cidr": "0.0.0.0/1",
-					"tcp",
-					443,
-					443,
-					"HTTPS Access"
-				],
-				[
-					"source-cidr": "128.0.0.0/1",
-					"tcp",
-					443,
-					443,
-					"HTTPS Access"
-				],
-				[
-					"source-cidr": "0.0.0.0/1",
-					"tcp",
-					8080,
-					8080,
-					"HTTP Access on port 8080"
-				],
-				[
-					"source-cidr": "128.0.0.0/1",
-					"tcp",
-					8080,
-					8080,
-					"HTTP Access on port 8080"
-				],
-				[
-					"source-cidr": "0.0.0.0/1",
-					"tcp",
-					22,
-					22,
-					"SSH Access"
-				],
-				[
-					"source-cidr": "128.0.0.0/1",
-					"tcp",
-					22,
-					22,
-					"SSH Access"
-				]
-			],
+			"security-group-rule": [{
+
+				"source-cidr": "0.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 80,
+				"targetport": 80,
+				"friendly": "HTTP Access"
+			}, {
+				"source-cidr": "128.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 80,
+				"targetport": 80,
+				"friendly": "HTTP Access"
+			}, {
+				"source-cidr": "0.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 443,
+				"targetport": 443,
+				"friendly": "HTTPS Access"
+			}, {
+				"source-cidr": "128.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 443,
+				"targetport": 443,
+				"friendly": "HTTPS Access"
+			}, {
+				"source-cidr": "0.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 8080,
+				"targetport": 8080,
+				"friendly": "HTTP Access on port 8080"
+			}, {
+				"source-cidr": "0.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 22,
+				"targetport": 22,
+				"friendly": "SSH Access"
+			}, {
+				"source-cidr": "128.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 22,
+				"targetport": 22,
+				"friendly": "SSH Access"
+			}],
 			"required-licenses": [{
 				"NGINX Plus": {
 					"name": "nginx-repo",
