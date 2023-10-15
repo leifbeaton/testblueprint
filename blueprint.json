@@ -8,6 +8,12 @@
 			"cidr": "10.0.0.1/24",
 			"has-dhcp": true,
 			"dhcp-range": "10.0.0.30-10.0.0.200"
+		},
+		{
+			"name": "admin_network",
+			"cidr": "10.0.0.10/24",
+			"has-dhcp": true,
+			"dhcp-range": "10.0.0.30-10.0.0.200"
 		}],
 		"instances": [{
 			"name": "nginx_frontend",
@@ -22,7 +28,8 @@
 			"disable-root": false,
 			"enable-ssh": true,
 			"nics": [{
-				"0": "testnetwork"
+				"0": "main_network",
+				"1": "admin_network"
 			}],
 			"security-group-rule": [{
 
@@ -123,7 +130,8 @@
 			"disable-root": false,
 			"enable-ssh": true,
 			"nics": [{
-				"0": "testnetwork"
+				"0": "main_network",
+				"1": "admin_network"
 			}],
 			"security-group-rule": [{
 
