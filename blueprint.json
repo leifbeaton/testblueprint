@@ -20,17 +20,7 @@
 			"requires-static-ip": true,
 			"recommended-optimization": "Balanced",
 			"disable-root": false,
-			"users": [{
-				"name": "leifbeaton",
-				"is-sudo": true,
-				"sudo-nopassword": true,
-				"has-homedir": true
-			}],
 			"enable-ssh": true,
-			"ssh-keys": [{
-				"leif": "hbhibhbobohibhoihbhibhboibboihobb",
-				"sys": "ihoboihohibobhibhobhhbihbiohbiobohibbioh"
-			}],
 			"nics": [{
 				"0": "testnetwork"
 			}],
