@@ -4,7 +4,7 @@
 	"version": "0.9",
 	"environment": {
 		"networks": [{
-			"name": "testnetwork",
+			"name": "main_network",
 			"cidr": "10.0.0.1/24",
 			"has-dhcp": true,
 			"dhcp-range": "10.0.0.30-10.0.0.200"
@@ -83,7 +83,7 @@
 				}
 			}],
 			"filecopy": [{
-					"source": "scripts/testserver_firstboot.sh",
+					"source": "scripts/nginx_frontend_firstboot.sh",
 					"target": "~/initscripts/",
 					"requires-reboot": false,
 					"postcopy-actions": [{
@@ -91,7 +91,7 @@
 					}]
 				},
 				{
-					"source": "scripts/testserver_eachboot.sh",
+					"source": "scripts/nginx_frontend_eachboot.sh",
 					"target": "/var/bootscripts/",
 					"requires-sudo": true,
 					"requires-reboot": false,
@@ -100,7 +100,108 @@
 					}]
 				},
 				{
-					"source": "config/testserver_nginx.conf",
+					"source": "config/nginx_frontend_nginx.conf",
+					"target": "/etc/nginx/conf.d/",
+					"requires-sudo": true,
+					"requires-reboot": false,
+					"postcopy-actions": [{
+						"exec-command": "nginx -s reload"
+					}]
+				}
+			]
+		},
+		{
+			"name": "nginx_backend",
+			"tested-os": [
+				"Ubuntu 22.04",
+				"Ubuntu 20.04"
+			],
+			"recommended-ram": "8GB",
+			"recommended-cpu": "8 cores",
+			"requires-static-ip": true,
+			"recommended-optimization": "Balanced",
+			"disable-root": false,
+			"enable-ssh": true,
+			"nics": [{
+				"0": "testnetwork"
+			}],
+			"security-group-rule": [{
+
+				"source-cidr": "0.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 80,
+				"targetport": 80,
+				"friendly": "HTTP Access"
+			}, {
+				"source-cidr": "128.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 80,
+				"targetport": 80,
+				"friendly": "HTTP Access"
+			}, {
+				"source-cidr": "0.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 443,
+				"targetport": 443,
+				"friendly": "HTTPS Access"
+			}, {
+				"source-cidr": "128.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 443,
+				"targetport": 443,
+				"friendly": "HTTPS Access"
+			}, {
+				"source-cidr": "0.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 8080,
+				"targetport": 8080,
+				"friendly": "HTTP Access on port 8080"
+			}, {
+				"source-cidr": "0.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 22,
+				"targetport": 22,
+				"friendly": "SSH Access"
+			}, {
+				"source-cidr": "128.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 22,
+				"targetport": 22,
+				"friendly": "SSH Access"
+			}],
+			"required-licenses": [{
+				"NGINX Plus": {
+					"name": "nginx-repo",
+					"format": "crt,key,jwt,zip",
+					"accepted-formats": [
+						"crt",
+						"key",
+						"jwt",
+						"zip"
+					],
+					"trial-url": "https://www.nginx.com/free-trial-request/",
+					"target-directory": "/etc/ssl/nginx/"
+				}
+			}],
+			"filecopy": [{
+					"source": "scripts/nginx_backend_firstboot.sh",
+					"target": "~/initscripts/",
+					"requires-reboot": false,
+					"postcopy-actions": [{
+						"runscript": "once"
+					}]
+				},
+				{
+					"source": "scripts/nginx_backend_eachboot.sh",
+					"target": "/var/bootscripts/",
+					"requires-sudo": true,
+					"requires-reboot": false,
+					"postcopy-actions": [{
+						"runscript": "eachboot"
+					}]
+				},
+				{
+					"source": "config/nginx_backend_nginx.conf",
 					"target": "/etc/nginx/conf.d/",
 					"requires-sudo": true,
 					"requires-reboot": false,
