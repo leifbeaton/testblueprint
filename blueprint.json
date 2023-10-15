@@ -15,8 +15,8 @@
 				"Ubuntu 22.04",
 				"Ubuntu 20.04"
 			],
-			"recommended-ram": "8GB",
-			"recommended-cpu": "8 cores",
+			"recommended-ram": "3GB",
+			"recommended-cpu": "2 cores",
 			"requires-static-ip": true,
 			"recommended-optimization": "Balanced",
 			"disable-root": false,
@@ -116,8 +116,8 @@
 				"Ubuntu 22.04",
 				"Ubuntu 20.04"
 			],
-			"recommended-ram": "8GB",
-			"recommended-cpu": "8 cores",
+			"recommended-ram": "2GB",
+			"recommended-cpu": "2 cores",
 			"requires-static-ip": true,
 			"recommended-optimization": "Balanced",
 			"disable-root": false,
