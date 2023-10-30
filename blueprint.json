@@ -82,12 +82,14 @@
 					"name": "nginx-repo",
 					"accepted-formats": [
 						"crt",
-						"key",
-						"jwt",
-						"zip"
+						"key"
 					],
 					"trial-url": "https://www.nginx.com/free-trial-request/",
-					"target-directory": "/etc/ssl/nginx/"
+					"target-directory": "/etc/ssl/nginx/",
+					"expected-files": [
+						"nginx-repo.crt",
+						"nginx-repo.key"
+					]
 				}
 			}],
 			"filecopy": [{
@@ -185,12 +187,14 @@
 					"name": "nginx-repo",
 					"accepted-formats": [
 						"crt",
-						"key",
-						"jwt",
-						"zip"
+						"key"
 					],
 					"trial-url": "https://www.nginx.com/free-trial-request/",
-					"target-directory": "/etc/ssl/nginx/"
+					"target-directory": "/etc/ssl/nginx/",
+					"expected-files": [
+						"nginx-repo.crt",
+						"nginx-repo.key"
+					]
 				}
 			}],
 			"filecopy": [{
