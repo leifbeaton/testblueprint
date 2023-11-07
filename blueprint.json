@@ -3,6 +3,7 @@
 	"author": "l.beaton@f5.com",
 	"version": "0.9",
 	"environment": {
+		"base-cidr": "10.0.0.0/16",
 		"networks": [{
 			"name": "main_network",
 			"cidr": "10.0.0.1/24",
