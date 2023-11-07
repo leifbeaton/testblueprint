@@ -12,9 +12,9 @@
 		},
 		{
 			"name": "admin_network",
-			"cidr": "10.0.0.10/24",
+			"cidr": "10.0.10.0/24",
 			"has-dhcp": true,
-			"dhcp-range": "10.0.0.30-10.0.0.200"
+			"dhcp-range": "10.0.10.30-10.0.10.200"
 		}],
 		"instances": [{
 			"name": "nginx_frontend",
