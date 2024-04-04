@@ -77,6 +77,18 @@
 				"sourceport": 22,
 				"targetport": 22,
 				"friendly": "SSH Access"
+			}, {
+				"source-cidr": "0.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 8443,
+				"targetport": 22,
+				"friendly": "SSH Access to VSCode"
+			}, {
+				"source-cidr": "128.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 8443,
+				"targetport": 8443,
+				"friendly": "SSH Access to VSCode"
 			}],
 			"required-licenses": [{
 				"NGINX Plus": {
@@ -182,6 +194,18 @@
 				"sourceport": 22,
 				"targetport": 22,
 				"friendly": "SSH Access"
+			}, {
+				"source-cidr": "0.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 8443,
+				"targetport": 22,
+				"friendly": "SSH Access to VSCode"
+			}, {
+				"source-cidr": "128.0.0.0/1",
+				"proto": "tcp",
+				"sourceport": 8443,
+				"targetport": 8443,
+				"friendly": "SSH Access to VSCode"
 			}],
 			"required-licenses": [{
 				"NGINX Plus": {
